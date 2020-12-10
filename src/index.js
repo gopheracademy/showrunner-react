@@ -19,7 +19,7 @@ import ReactDOM from "react-dom";
 // react library for routing
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import { Security, LoginCallback } from '@okta/okta-react';
+import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 // bootstrap rtl for rtl support page
@@ -59,7 +59,7 @@ ReactDOM.render(
 
         <Route path={CALLBACK_PATH}
           component={LoginCallback} />
-        <Route path="/admin" render={props => <AdminLayout {...props} />} />
+        <SecureRoute path="/admin" render={props => <AdminLayout {...props} />} />
         <Route path="/auth" render={props => <AuthLayout {...props} />} />
         <Route path="/" render={props => <IndexView {...props} />} />
         <Redirect from="*" to="/" />

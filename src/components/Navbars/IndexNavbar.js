@@ -121,13 +121,19 @@ const AdminNavbar = () => {
               </Row>
             </div>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink to="/admin/dashboard" tag={Link}>
-                  <span className="nav-link-inner--text">Dashboard</span>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/auth/pricing" tag={Link}>
+
+              {authState.isAuthenticated
+                && (
+
+                  <NavItem>
+                    <NavLink to="/admin/dashboard" tag={Link}>
+                      <span className="nav-link-inner--text">My GopherCon</span>
+                    </NavLink>
+                  </NavItem>
+                )}
+
+              < NavItem >
+                < NavLink to="/auth/pricing" tag={Link}>
                   <span className="nav-link-inner--text">Pricing</span>
                 </NavLink>
               </NavItem>
@@ -237,7 +243,7 @@ const AdminNavbar = () => {
             </Nav>
           </UncontrolledCollapse>
         </Container>
-      </Navbar>
+      </Navbar >
     </>
   );
 }
