@@ -38,6 +38,8 @@ import "assets/vendor/@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/scss/argon-dashboard-pro-react.scss?v1.1.0";
 
 import AdminLayout from "layouts/Admin.js";
+
+import MyGcLayout from "layouts/MyGc.js";
 import AuthLayout from "layouts/Auth.js";
 
 //pages
@@ -66,6 +68,7 @@ ReactDOM.render(
         <Route path={CALLBACK_PATH}
           component={LoginCallback} />
         <SecureRoute path="/admin" render={props => <AdminLayout {...props} />} />
+        <SecureRoute path="/mygc" render={props => <MyGcLayout {...props} />} />
         <Route path="/auth" render={props => <AuthLayout {...props} />} />
 
         <Route path="/agenda" render={props => <AgendaView {...props} />} />

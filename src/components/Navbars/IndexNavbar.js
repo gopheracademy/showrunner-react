@@ -126,7 +126,7 @@ const AdminNavbar = () => {
                 && (
 
                   <NavItem>
-                    <NavLink to="/admin/dashboard" tag={Link}>
+                    <NavLink to="/mygc/dashboard" tag={Link}>
                       <span className="nav-link-inner--text">My GopherCon</span>
                     </NavLink>
                   </NavItem>

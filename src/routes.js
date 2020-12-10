@@ -21,6 +21,7 @@ import Cards from "views/pages/components/Cards.js";
 import Charts from "views/pages/Charts.js";
 import Components from "views/pages/forms/Components.js";
 import Dashboard from "views/pages/dashboards/Dashboard.js";
+
 import Elements from "views/pages/forms/Elements.js";
 import Google from "views/pages/maps/Google.js";
 import Grid from "views/pages/components/Grid.js";
@@ -178,19 +179,19 @@ const routes = [
           {
             path: "#pablo",
             name: "Third level menu",
-            component: () => {},
+            component: () => { },
             layout: "/"
           },
           {
             path: "#pablo",
             name: "Just another link",
-            component: () => {},
+            component: () => { },
             layout: "/"
           },
           {
             path: "#pablo",
             name: "One last link",
-            component: () => {},
+            component: () => { },
             layout: "/"
           }
         ]
