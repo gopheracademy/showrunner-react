@@ -38,7 +38,6 @@ import "assets/vendor/@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/scss/argon-dashboard-pro-react.scss?v1.1.0";
 
 import AdminLayout from "layouts/Admin.js";
-import RTLLayout from "layouts/RTL.js";
 import AuthLayout from "layouts/Auth.js";
 import IndexView from "views/Index.js";
 const CALLBACK_PATH = '/login/callback';
@@ -61,7 +60,6 @@ ReactDOM.render(
         <Route path={CALLBACK_PATH}
           component={LoginCallback} />
         <Route path="/admin" render={props => <AdminLayout {...props} />} />
-        <Route path="/rtl" render={props => <RTLLayout {...props} />} />
         <Route path="/auth" render={props => <AuthLayout {...props} />} />
         <Route path="/" render={props => <IndexView {...props} />} />
         <Redirect from="*" to="/" />
