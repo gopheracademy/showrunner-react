@@ -45,7 +45,7 @@ const CALLBACK_PATH = '/login/callback';
 const config = {
   clientId: '0oa26dc0cgcjzHwsJ5d6',
   issuer: 'https://dev-7217861.okta.com',
-  redirectUri: 'http://localhost:3000/login/callback',
+  redirectUri: `${window.location.origin}/login/callback`,
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };

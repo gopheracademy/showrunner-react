@@ -73,7 +73,7 @@ const AdminNavbar = () => {
           <NavbarBrand to="/" tag={Link}>
             <img
               alt="..."
-              src={require("assets/img/brand/argon-react-white.png")}
+              src={require("assets/img/brand/default-monochrome-white.svg")}
             />
           </NavbarBrand>
           <button
