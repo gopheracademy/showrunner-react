@@ -49,7 +49,7 @@ import {
 const AdminNavbar = (props) => {
 
 
-  const [toggleSidenav] = useState({});
+  const [toggleSidenav] = useState(() => { });
 
   const [sidenavOpen] = useState(false);
   const [theme] = useState("dark");

@@ -39,7 +39,13 @@ import "assets/scss/argon-dashboard-pro-react.scss?v1.1.0";
 
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
+
+//pages
 import IndexView from "views/Index.js";
+import SpeakerView from "views/Speakers.js";
+import SponsorView from "views/Sponsors.js";
+import AgendaView from "views/Agenda.js";
+
 const CALLBACK_PATH = '/login/callback';
 const config = {
   clientId: '0oa26dc0cgcjzHwsJ5d6',
@@ -61,7 +67,12 @@ ReactDOM.render(
           component={LoginCallback} />
         <SecureRoute path="/admin" render={props => <AdminLayout {...props} />} />
         <Route path="/auth" render={props => <AuthLayout {...props} />} />
+
+        <Route path="/agenda" render={props => <AgendaView {...props} />} />
+        <Route path="/speakers" render={props => <SpeakerView {...props} />} />
+        <Route path="/sponsors" render={props => <SponsorView {...props} />} />
         <Route path="/" render={props => <IndexView {...props} />} />
+
         <Redirect from="*" to="/" />
 
       </Switch>

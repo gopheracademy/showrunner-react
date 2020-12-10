@@ -133,18 +133,18 @@ const AdminNavbar = () => {
                 )}
 
               < NavItem >
-                < NavLink to="/auth/pricing" tag={Link}>
-                  <span className="nav-link-inner--text">Pricing</span>
+                < NavLink to="/speakers" tag={Link}>
+                  <span className="nav-link-inner--text">Speakers</span>
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/auth/login" tag={Link}>
-                  <span className="nav-link-inner--text">Login</span>
+                <NavLink to="/sponsors" tag={Link}>
+                  <span className="nav-link-inner--text">Sponsors</span>
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/auth/register" tag={Link}>
-                  <span className="nav-link-inner--text">Register</span>
+                <NavLink to="/agenda" tag={Link}>
+                  <span className="nav-link-inner--text">Agenda</span>
                 </NavLink>
               </NavItem>
               <NavItem>
