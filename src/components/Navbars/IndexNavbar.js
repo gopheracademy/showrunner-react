@@ -45,9 +45,10 @@ const AdminNavbar = () => {
     } else {
       oktaAuth.getUser().then((info) => {
         setUserInfo(info);
+        console.log(userInfo);
       });
     }
-  }, [authState, oktaAuth]); // Update if authState changes
+  }, [authState, oktaAuth, userInfo]); // Update if authState changes
 
   const login = async () => {
     oktaAuth.signInWithRedirect();
