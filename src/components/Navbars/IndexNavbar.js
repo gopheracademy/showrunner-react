@@ -38,7 +38,7 @@ import {
 } from "reactstrap";
 
 const AdminNavbar = () => {
-  const { userInfo, authState } = useUser()
+  const { authState } = useUser()
   const { oktaAuth } = useOktaAuth();
   const login = async () => {
     oktaAuth.signInWithRedirect();
