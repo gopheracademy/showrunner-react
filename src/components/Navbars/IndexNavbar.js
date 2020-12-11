@@ -45,7 +45,7 @@ const AdminNavbar = () => {
     } else {
       oktaAuth.getUser().then((info) => {
         setUserInfo(info);
-        console.log(userInfo);
+        // console.log(userInfo);
       });
     }
   }, [authState, oktaAuth, userInfo]); // Update if authState changes
