@@ -14,9 +14,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState, useEffect } from 'react';
-import { useOktaAuth } from '@okta/okta-react';
-
+import React, { useState } from 'react';
+import useUser from "user";
 // nodejs library that concatenates classes
 import classnames from "classnames";
 // nodejs library to set properties for components
@@ -45,6 +44,8 @@ import {
   Row,
   Col
 } from "reactstrap";
+
+import { useOktaAuth } from '@okta/okta-react';
 
 const AdminNavbar = (props) => {
 
@@ -80,20 +81,13 @@ const AdminNavbar = (props) => {
     }, 500);
   };
 
-  const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
-  useEffect(() => {
-    if (!authState.isAuthenticated) {
-      // When user isn't authenticated, forget any user info
-      setUserInfo(null);
-    } else {
-      oktaAuth.getUser().then((info) => {
-        setUserInfo(info);
-        console.log(userInfo);
-      });
-    }
-  }, [authState, oktaAuth, userInfo]); // Update if authState changes
+  const { userInfo, authState } = useUser()
 
+  const { oktaAuth } = useOktaAuth();
+
+  const logout = async () => {
+    oktaAuth.signOut();
+  }
 
   if (authState.isPending) {
     return (
@@ -429,8 +423,8 @@ const AdminNavbar = (props) => {
                     </span>
                     <Media className="ml-2 d-none d-lg-block">
                       <span className="mb-0 text-sm font-weight-bold">
-                        John Snow
-                        </span>
+                        {userInfo && userInfo.email}
+                      </span>
                     </Media>
                   </Media>
                 </DropdownToggle>
@@ -469,7 +463,7 @@ const AdminNavbar = (props) => {
                   <DropdownItem divider />
                   <DropdownItem
                     href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    onClick={logout}
                   >
                     <i className="ni ni-user-run" />
                     <span>Logout</span>

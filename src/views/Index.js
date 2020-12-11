@@ -40,25 +40,12 @@ import IndexHeader from "components/Headers/IndexHeader.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 import Client from "showrunner";
 
-const Index = () => {
-  const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
-  const [conference, setConference] = useState({})
-  useEffect(() => {
-    if (!authState.isAuthenticated) {
-      // When user isn't authenticated, forget any user info
-      setUserInfo(null);
-    } else {
-      oktaAuth.getUser().then((info) => {
-        setUserInfo(info);
-        console.log(info);
 
-        const client = new Client("dev", authState.idToken.value);
-        const result = client.conferences.GetCurrentByEvent({ EventID: 1 })
-        console.log(result);
-      });
-    }
-  }, [authState, oktaAuth]); // Update if authState changes
+import useUser from "user";
+
+const Index = () => {
+
+  const { userInfo, authState } = useUser()
 
   if (authState.isPending) {
     return (

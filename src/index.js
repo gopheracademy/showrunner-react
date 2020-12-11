@@ -14,7 +14,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React from 'react';
+
 import ReactDOM from "react-dom";
 // react library for routing
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
@@ -56,7 +57,9 @@ const config = {
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };
+
 const oktaAuth = new OktaAuth(config);
+
 
 ReactDOM.render(
 

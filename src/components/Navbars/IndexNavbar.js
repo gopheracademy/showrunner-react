@@ -14,7 +14,10 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+import useUser from "user";
+
 import { useOktaAuth } from '@okta/okta-react';
 
 // react library for routing
@@ -35,21 +38,8 @@ import {
 } from "reactstrap";
 
 const AdminNavbar = () => {
-
-  const { authState, oktaAuth } = useOktaAuth();
-  const [userInfo, setUserInfo] = useState(null);
-  useEffect(() => {
-    if (!authState.isAuthenticated) {
-      // When user isn't authenticated, forget any user info
-      setUserInfo(null);
-    } else {
-      oktaAuth.getUser().then((info) => {
-        setUserInfo(info);
-        // console.log(userInfo);
-      });
-    }
-  }, [authState, oktaAuth, userInfo]); // Update if authState changes
-
+  const { userInfo, authState } = useUser()
+  const { oktaAuth } = useOktaAuth();
   const login = async () => {
     oktaAuth.signInWithRedirect();
   };
@@ -235,10 +225,14 @@ const AdminNavbar = () => {
                     <Button
                       className="btn-neutral btn-icon"
                       color="default"
+                      too
                       onClick={logout}
                     >
-                      <span className="nav-link-inner--text">Logout</span>
-                    </Button>)}
+
+                      <span className="nav-link-inner--text">Logout
+                      </span>
+                    </Button>
+                  )}
               </NavItem>
             </Nav>
           </UncontrolledCollapse>
