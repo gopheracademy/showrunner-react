@@ -1,0 +1,3 @@
+{
+    "ignorePatterns": ["/src/showrunner.js", "**/vendor/*.js"],
+}

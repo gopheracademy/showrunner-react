@@ -49,7 +49,10 @@
     "map-sass": "node-sass src/assets/scss/argon-dashboard-pro-react.scss src/assets/css/argon-dashboard-pro-react.css --source-map true"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "ignorePatterns": [
+      "/src/showrunner.js"
+    ]
   },
   "browserslist": [
     ">0.2%",

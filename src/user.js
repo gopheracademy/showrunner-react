@@ -4,6 +4,7 @@ import { useOktaAuth } from '@okta/okta-react';
 const useUser = () => {
     const { authState, oktaAuth } = useOktaAuth();
     const [userInfo, setUserInfo] = useState(null);
+    //const [encoreClient, setEncoreClient] = useState(null)
     useEffect(() => {
         if (!authState.isAuthenticated) {
             // When user isn't authenticated, forget any user info
@@ -11,6 +12,7 @@ const useUser = () => {
         } else {
             oktaAuth.getUser().then((info) => {
                 setUserInfo(info);
+
             });
         }
     }, [authState, oktaAuth, userInfo]); // Update if authState changes
